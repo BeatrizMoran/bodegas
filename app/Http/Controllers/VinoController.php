@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Vino;
+use App\Models\Bodega;
+
 use Illuminate\Http\Request;
 
 class VinoController extends Controller
@@ -20,7 +22,8 @@ class VinoController extends Controller
      */
     public function create()
     {
-        return view("vino.create");
+        $bodegas = Bodega::all();
+        return view("vino.create", compact("bodegas"));
     }
 
     /**

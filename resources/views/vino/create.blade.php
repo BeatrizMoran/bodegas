@@ -35,6 +35,12 @@
 
             <div class="form-group">
                 <label for="bodega_id">Bodega ID:</label>
+                <select id="bodega" name="bodega">
+                @foreach($bodegas as $bodega)
+                    <option value="{{ $bodega->id }}">{{ $bodega->nombre }}</option>
+                @endforeach
+
+                </select>
                 <input type="number" name="bodega_id" class="form-control" required>
             </div>
 
