@@ -31,5 +31,6 @@ Route::put('/bodegas/update/{bodega}', [BodegaController::class, "update"])->nam
 Route::delete('/bodegas/destroy/{bodega}', [BodegaController::class, "destroy"])->name("bodega.destroy");
 
 */
+Route::get('/', [BodegaController::class, "index"])->name("bodegas.index");
 
 Route::resource('/bodegas', BodegaController::class);
