@@ -39,7 +39,7 @@ class BodegaController extends Controller
         // Insertar el artículo en la BBDD tras su validación.
         Bodega::create($request->all());
 
-        return redirect(route('bodega.index'))->with("success", "Bodega creada correctamente");
+        return redirect(route('bodegas.index'))->with("success", "Bodega creada correctamente");
     }
 
     /**
@@ -47,17 +47,21 @@ class BodegaController extends Controller
      */
     public function show(Bodega $bodega): View
     {
-        return view("bodega.show", compact("bodega"));
+        return view("bodega.show", [
+            "bodega"=> $bodega,
+            "edit" => false
+            ]
+        );
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Bodega $bodega, $edit): View
+    public function edit(Bodega $bodega): View
     {
         return view("bodega.show", [
             "bodega"=> $bodega,
-            "edit" => $edit
+            "edit" => true
         ]);
     }
 
@@ -71,7 +75,7 @@ class BodegaController extends Controller
 
         $bodega->update($request->all());
 
-        return redirect(route('bodega.index'))->with("success", "Bodega actualizada correctamente");
+        return redirect(route('bodegas.index'))->with("success", "Bodega actualizada correctamente");
 
     }
 
@@ -82,6 +86,6 @@ class BodegaController extends Controller
     {
         $bodega->delete();
 
-        return redirect(route('bodega.index'))->with("danger", "Bodega borrada correctamente");
+        return redirect(route('bodegas.index'))->with("danger", "Bodega borrada correctamente");
     }
 }

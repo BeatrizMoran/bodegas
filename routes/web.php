@@ -33,4 +33,5 @@ Route::delete('/bodegas/destroy/{bodega}', [BodegaController::class, "destroy"])
 */
 Route::get('/', [BodegaController::class, "index"])->name("bodegas.index");
 
+
 Route::resource('/bodegas', BodegaController::class);
