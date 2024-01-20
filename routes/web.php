@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BodegaController;
+use App\Http\Controllers\VinoController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -33,5 +35,9 @@ Route::delete('/bodegas/destroy/{bodega}', [BodegaController::class, "destroy"])
 */
 Route::get('/', [BodegaController::class, "index"])->name("bodegas.index");
 
+Route::get('/bodegas/{bodega}/vinos', [BodegaController::class, 'show'])->name('bodegas.vinos.show');
 
 Route::resource('/bodegas', BodegaController::class);
+
+Route::resource('/vinos', VinoController::class);
+

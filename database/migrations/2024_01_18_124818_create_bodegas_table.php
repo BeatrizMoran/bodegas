@@ -23,6 +23,7 @@ return new class extends Migration
             $table->boolean("restaurante");
             $table->boolean("hotel");
             $table->timestamps();
+
         });
     }
 

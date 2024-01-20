@@ -47,9 +47,13 @@ class BodegaController extends Controller
      */
     public function show(Bodega $bodega): View
     {
+        $bodega->load('vinos');
+
+        $vinos = $bodega->vinos;
         return view("bodega.show", [
             "bodega"=> $bodega,
-            "edit" => false
+            "edit" => false,
+            "vinos" => $vinos
             ]
         );
     }

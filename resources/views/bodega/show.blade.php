@@ -14,7 +14,8 @@
         <input type="submit" class="btn btn-danger btn-sm" value="ELIMINAR">
     </form>
 
-        <form action="{{ route('bodegas.update', $bodega) }}" method="POST">
+    <div class="row">
+        <form action="{{ route('bodegas.update', $bodega) }}" method="POST" class="col-8">
             @method("PUT")
             @csrf <!-- Esto es para protección contra CSRF en Laravel, asegúrate de incluirlo si estás usando Laravel -->
 
@@ -79,6 +80,42 @@
 
             <input type="{{ isset($edit) && $edit ? 'submit' : 'hidden' }}" class="btn btn-primary" value="Actualizar Bodega" {{ isset($edit) && $edit ? 'required' : 'disabled' }}>
         </form>
+
+        <div class="col-4">
+        <a href="{{ route('vinos.create') }}">Crear Vino</a>
+
+        <ul>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Tipo</th>
+                    <th>Accion</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                @forelse($vinos as $vino)
+                <tr>
+                    <td>{{ $vino->nombre }}</td>
+                    <td>{{ $vino->tipo }}</td>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+                @empty
+                <tr>
+                    <td colspan="5" class="text-center">No hay Vinos</td>
+                </tr>
+                @endforelse
+            </tbody>
+        </table>
+           
+</div>
+</div>
+
+       
+
 
         <a href="{{ route('bodegas.index') }}" class="btn btn-secondary mt-3">Volver</a>
     </div>
