@@ -99,8 +99,10 @@
                 <tr>
                     <td>{{ $vino->nombre }}</td>
                     <td>{{ $vino->tipo }}</td>
-                    <td></td>
-                    <td></td>
+                    <td>
+                        <a href="{{ route('vinos.show', $vino) }}">Entrar</a>
+                    </td>
+        
                     
                 </tr>
                 @empty

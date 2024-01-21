@@ -35,7 +35,7 @@ class VinoController extends Controller
     public function store(VinoRequest $request)
     {
         Vino::create($request->all());
-        return redirect(route('bodegas.index'))->with("success", "Vino creado correctamente");;
+        return redirect(route('bodegas.vinos.show', $request->bodega_id))->with("success", "Vino creado correctamente");;
     }
 
     /**
@@ -43,7 +43,10 @@ class VinoController extends Controller
      */
     public function show(Vino $vino)
     {
-        //
+        return view("vino.show", [
+            "vino" => $vino,
+            "edit" => false
+        ]);
     }
 
     /**
@@ -51,15 +54,19 @@ class VinoController extends Controller
      */
     public function edit(Vino $vino)
     {
-        //
+        return view('vino.show', [
+            "vino" => $vino,
+            "edit" => true
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Vino $vino)
+    public function update(VinoRequest $request, Vino $vino)
     {
-        //
+        $vino->update($request->all());
+        return redirect(route('vinos.show', $vino))->with("success", "Vino actualizado correctamente");
     }
 
     /**
@@ -67,6 +74,7 @@ class VinoController extends Controller
      */
     public function destroy(Vino $vino)
     {
-        //
+        $vino->delete();
+        return redirect(route('bodegas.vinos.show', $vino->bodega_id))->with("danger", "Vino borrado correctamente");
     }
 }
