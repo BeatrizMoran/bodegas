@@ -80,7 +80,7 @@
                 </div>
             </div>
 
-            <input type="{{ isset($edit) && $edit ? 'submit' : 'hidden' }}" class="btn btn-primary" value="Actualizar Bodega" {{ isset($edit) && $edit ? 'required' : 'disabled' }}>
+            <input type="{{ isset($edit) && $edit ? 'submit' : 'hidden' }}" class="btn btn-primary my-3" value="Actualizar Bodega" {{ isset($edit) && $edit ? 'required' : 'disabled' }}>
         </form>
 
         <div class="col-4">

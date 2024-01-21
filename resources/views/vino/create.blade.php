@@ -43,7 +43,9 @@
             </div>
 
 
-            <button type="submit" class="btn btn-success mb-3">Crear Vino</button>
+            <input type="hidden" name="bodega_id" value="{{ $bodega->id}}">
+
+            <button type="submit" class="btn btn-success mb-3 my-3">Crear Vino</button>
         </form>
     </div>
 @endsection
