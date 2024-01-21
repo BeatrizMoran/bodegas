@@ -25,9 +25,9 @@ class VinoRequest extends FormRequest
             "nombre" => "required|string",
             "descripcion" => "required|string",
             "anyo" => "required|integer",
-            "alcohol" => "required|float",
-            "tipo" => "required|tinto",
-            "bodega_id" => "required|integer"
+            "alcohol" => "required|numeric",
+            "tipo" => "required|string",
+            "bodega_id" => "required|integer|exists:bodegas,id",
         ];
     }
 }

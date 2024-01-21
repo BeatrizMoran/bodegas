@@ -6,6 +6,8 @@ use App\Models\Vino;
 use App\Models\Bodega;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\VinoRequest;
+
 
 class VinoController extends Controller
 {
@@ -20,10 +22,11 @@ class VinoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Bodega $bodega)
     {
-        $bodegas = Bodega::all();
-        return view("vino.create", compact("bodegas"));
+        return view("vino.create", [
+            "bodega" => $bodega
+        ]);
     }
 
     /**
@@ -32,7 +35,7 @@ class VinoController extends Controller
     public function store(VinoRequest $request)
     {
         Vino::create($request->all());
-        return redirect(route('bodegas.vinos.show'));
+        return redirect(route('bodegas.index'))->with("success", "Vino creado correctamente");;
     }
 
     /**

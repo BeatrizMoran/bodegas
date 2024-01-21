@@ -39,5 +39,7 @@ Route::get('/bodegas/{bodega}/vinos', [BodegaController::class, 'show'])->name('
 
 Route::resource('/bodegas', BodegaController::class);
 
-Route::resource('/vinos', VinoController::class);
+Route::get('/vinos/create/{bodega}', [ VinoController::class, "create"])->name('vinos.bodega.create');
 
+
+Route::resource('/vinos', VinoController::class);

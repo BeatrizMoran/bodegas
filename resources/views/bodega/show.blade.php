@@ -82,7 +82,7 @@
         </form>
 
         <div class="col-4">
-        <a href="{{ route('vinos.create') }}">Crear Vino</a>
+        <a href="{{ route('vinos.bodega.create', $bodega) }}">Crear Vino</a>
 
         <ul>
         <table class="table">

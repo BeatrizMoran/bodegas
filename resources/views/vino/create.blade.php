@@ -1,10 +1,19 @@
 @extends("layouts.app")
 
-@section("title", "crear vino")
+@section("title", "Crear Vino")
 
 @section("content")
-<div class="container">
-        <h2>Crear Vino</h2>
+
+@if($errors->any())
+<ul>
+        @foreach($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+
+</ul>
+@endif
+    <div class="container">
+        <h2 class="mt-4 mb-4">Crear Vino</h2>
         <form action="{{ route('vinos.store') }}" method="POST">
             @csrf
 
@@ -33,16 +42,7 @@
                 <input type="text" name="tipo" class="form-control" required>
             </div>
 
-            <div class="form-group">
-                <label for="bodega_id">Bodega ID:</label>
-                <select id="bodega" name="bodega">
-                @foreach($bodegas as $bodega)
-                    <option value="{{ $bodega->id }}">{{ $bodega->nombre }}</option>
-                @endforeach
-
-                </select>
-                <input type="number" name="bodega_id" class="form-control" required>
-            </div>
+            <input type="hidden" name="bodega_id" value="{{ $bodega->id}}">
 
             <button type="submit" class="btn btn-primary">Crear Vino</button>
         </form>
