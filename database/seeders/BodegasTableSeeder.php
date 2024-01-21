@@ -20,7 +20,7 @@ class BodegasTableSeeder extends Seeder
             DB::table("bodegas")->insert([
                 "nombre" => $faker->company,
                 "ubicacion" => $faker->text(255),
-                "telefono" => $faker->phoneNumber,
+                'telefono' => $faker->numerify('#########'), // Genera 9 dígitos
                 "email" => $faker->email,
                 "personaContacto" => $faker->name,
                 "anyoFundacion" => $faker->year,
