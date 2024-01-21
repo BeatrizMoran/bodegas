@@ -16,7 +16,7 @@
 
 <div class="container mt-4">
     <h2 class="mb-4">Detalles Vino</h2>
-    <a href="{{ route('vinos.edit', $vino) }}" class="btn btn-primary mb-2">Editar</a>
+    <a href="{{ route('vinos.edit', $vino) }}"  class="btn btn-warning mb-2">Editar</a>
     <a href="{{ route('bodegas.vinos.show', $vino->bodega_id) }}" class="btn btn-secondary mb-2">Volver</a>
 
     <form action="{{ route('vinos.destroy', $vino)}}" method="post" style="display: inline;">
@@ -57,7 +57,7 @@
         <input type="hidden" name="bodega_id" value="{{ $vino->bodega_id}}">
 
 
-        <input type="{{ $edit ? 'submit' : 'hidden' }}" class="btn btn-success mb-3" value="Actualizar Vino">
+        <input type="{{ $edit ? 'submit' : 'hidden' }}" class="btn btn-success mb-3 my-3" value="Actualizar Vino">
     </form>
 </div>
 

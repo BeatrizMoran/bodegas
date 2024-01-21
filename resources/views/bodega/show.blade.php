@@ -5,7 +5,7 @@
 @section("content")
     <div class="container">
     <h1 class="my-4">Crear Bodega</h1>
-    <a href="{{ route('bodegas.edit', $bodega) }}" class="btn btn-primary mb-3">Editar</a>
+    <a href="{{ route('bodegas.edit', $bodega) }}" class="btn btn-warning mb-3">Editar</a>
 
     <a href="{{ route('bodegas.index') }}" class="btn btn-secondary mb-3">Volver</a>
 

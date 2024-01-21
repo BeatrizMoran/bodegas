@@ -25,7 +25,7 @@
                     <td>{{ $bodega->telefono }}</td>
                     <td>{{ $bodega->email }}</td>
                     <td>
-                        <a href="{{ route('bodegas.vinos.show', $bodega) }}" class="btn btn-info btn-sm">Entrar</a>
+                        <a href="{{ route('bodegas.vinos.show', $bodega) }}"class="btn btn-primary btn-sm">Entrar</a>
                         <form action=" {{ route('bodegas.destroy', $bodega) }} " method="POST" style="display: inline;">
                             @csrf 
                             @method("DELETE")
