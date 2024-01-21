@@ -42,9 +42,8 @@
                 <input type="text" name="tipo" class="form-control" required>
             </div>
 
-            <input type="hidden" name="bodega_id" value="{{ $bodega->id}}">
 
-            <button type="submit" class="btn btn-primary">Crear Vino</button>
+            <button type="submit" class="btn btn-success mb-3">Crear Vino</button>
         </form>
     </div>
 @endsection

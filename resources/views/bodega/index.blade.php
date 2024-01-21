@@ -5,7 +5,7 @@
 @section("content")
     <div class="container">
         <h1 class="my-4">Listado de bodegas</h1>
-        <a href="{{ route('bodegas.create') }}" class="btn btn-primary mb-3">Añadir bodega</a>
+        <a href="{{ route('bodegas.create') }}" class="btn btn-success mb-3">Añadir bodega</a>
 
         <table class="table">
             <thead>
@@ -26,7 +26,7 @@
                     <td>{{ $bodega->email }}</td>
                     <td>
                         <a href="{{ route('bodegas.vinos.show', $bodega) }}" class="btn btn-info btn-sm">Entrar</a>
-                        <form action=" {{ route('bodegas.destroy', $bodega) }} " method="POST">
+                        <form action=" {{ route('bodegas.destroy', $bodega) }} " method="POST" style="display: inline;">
                             @csrf 
                             @method("DELETE")
                             <input type="submit" class="btn btn-danger btn-sm" value="ELIMINAR">

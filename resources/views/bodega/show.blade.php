@@ -5,14 +5,16 @@
 @section("content")
     <div class="container">
     <h1 class="my-4">Crear Bodega</h1>
+    <a href="{{ route('bodegas.edit', $bodega) }}" class="btn btn-primary mb-3">Editar</a>
 
-    <a href="{{ route('bodegas.edit', ['bodega' => $bodega,'edit' => true]) }}" class="btn btn-primary mb-3">Editar</a>
-    <a href="{{ route('bodegas.index')}}" class="btn btn-secondary mb-3">Volver</a>
-    <form action=" {{ route('bodegas.destroy', $bodega) }} " method="POST">
+    <a href="{{ route('bodegas.index') }}" class="btn btn-secondary mb-3">Volver</a>
+
+    <form action="{{ route('bodegas.destroy', $bodega) }}" method="POST" style="display: inline;">
         @csrf 
         @method("DELETE")
-        <input type="submit" class="btn btn-danger btn-sm" value="ELIMINAR">
+        <input type="submit" class="btn btn-danger mb-3" value="ELIMINAR">
     </form>
+
 
     <div class="row">
         <form action="{{ route('bodegas.update', $bodega) }}" method="POST" class="col-8">
@@ -82,7 +84,7 @@
         </form>
 
         <div class="col-4">
-        <a href="{{ route('vinos.bodega.create', $bodega) }}">Crear Vino</a>
+        <a href="{{ route('vinos.bodega.create', $bodega) }}" class="btn btn-success mb-3">Crear Vino</a>
 
         <ul>
         <table class="table">
@@ -100,26 +102,23 @@
                     <td>{{ $vino->nombre }}</td>
                     <td>{{ $vino->tipo }}</td>
                     <td>
-                        <a href="{{ route('vinos.show', $vino) }}">Entrar</a>
+                        <a href="{{ route('vinos.show', $vino) }}" class="btn btn-primary">Entrar</a>
+                        <form action="{{ route('vinos.destroy', $vino) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
                     </td>
-        
-                    
                 </tr>
                 @empty
                 <tr>
-                    <td colspan="5" class="text-center">No hay Vinos</td>
+                    <td colspan="3" class="text-center">No hay Vinos</td>
                 </tr>
                 @endforelse
             </tbody>
-        </table>
            
 </div>
 </div>
-
-       
-
-
-        <a href="{{ route('bodegas.index') }}" class="btn btn-secondary mt-3">Volver</a>
     </div>
 
     <div class="vinos">

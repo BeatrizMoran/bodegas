@@ -75,7 +75,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" required>Crear Bodega</button>
+            <button type="submit" class="btn btn-success mb-3" required>Crear Bodega</button>
         </form>
 
         <a href="{{ route('bodegas.index') }}" class="btn btn-secondary mt-3">Volver</a>

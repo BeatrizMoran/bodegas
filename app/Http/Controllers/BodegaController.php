@@ -63,9 +63,15 @@ class BodegaController extends Controller
      */
     public function edit(Bodega $bodega): View
     {
+        $bodega->load('vinos');
+        $vinos = $bodega->vinos;
+
+
         return view("bodega.show", [
             "bodega"=> $bodega,
-            "edit" => true
+            "edit" => true,
+            "vinos" => $vinos
+
         ]);
     }
 
@@ -79,7 +85,7 @@ class BodegaController extends Controller
 
         $bodega->update($request->all());
 
-        return redirect(route('bodegas.index'))->with("success", "Bodega actualizada correctamente");
+        return redirect(route('bodegas.vinos.show', $bodega))->with("success", "Bodega actualizada correctamente");
 
     }
 
