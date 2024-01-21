@@ -5,27 +5,31 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\DB;
 
 class BodegasTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
-    public function run(): void
+    public function run()
     {
-        $faker = \Faker\Factory::create();
+        $faker = Faker::create();
 
-        for ($i=0; $i <10 ; $i++) { 
+        for ($i = 0; $i < 3; $i++) {
             DB::table("bodegas")->insert([
-                "id" => $faker->number(10),
+                "nombre" => $faker->company,
                 "ubicacion" => $faker->text(255),
-                "telefono" => $faker->text(9),
-                "fecha_alta" => $faker->date,
-                "estado" => $faker->numberBetween(0,1),
+                "telefono" => $faker->phoneNumber,
+                "email" => $faker->email,
+                "personaContacto" => $faker->name,
+                "anyoFundacion" => $faker->year,
+                "descripcion" => $faker->paragraph,
+                "restaurante" => $faker->boolean,
+                "hotel" => $faker->boolean,
                 "created_at" => now(),
                 "updated_at" => now(),
             ]);
         }
-
     }
 }
